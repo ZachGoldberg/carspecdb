@@ -9,89 +9,91 @@
 
 </head>
 <body>
-    <!-- Page Content -->
-    <div class="container" style="width: 95%">
-      <div>
+  <!-- Page Content -->
+  <div class="container" style="width: 95%">
+    <div>
       <form id="carform" action="#">
-      <fieldset>
-        <div width="300">
-          <div class="form-group">
-            <div class="col-md-2">
-              <input id="carmake" name="carmake" type="text" placeholder="Make" class="form-control input-md">
+        <fieldset>
+          <div width="300">
+            <div class="form-group">
+              <div class="col-md-2">
+                <input id="carmake" name="carmake" type="text" placeholder="Make" class="form-control input-md">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2">
+                <input id="carmodel" name="carmodel" type="text" placeholder="Model" class="form-control input-md">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2">
+                <input id="cartrim" name="cartrim" type="text" placeholder="Trim" class="form-control input-md">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2">
+                <input id="caryear" name="caryear" type="text" placeholder="Year" class="form-control input-md">
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="col-md-2">
-              <input id="carmodel" name="carmodel" type="text" placeholder="Model" class="form-control input-md">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-2">
-              <input id="cartrim" name="cartrim" type="text" placeholder="Trim" class="form-control input-md">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-md-2">
-              <input id="caryear" name="caryear" type="text" placeholder="Year" class="form-control input-md">
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="form-group">
-            <div class="col-md-1">
-            <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="this.form.submit">Submit</button>
-          </div>
-        </div>
           <div>
-            <a class="toggle-vis">Show/Hide Extra Columns</a><br>
-            <div id="carstatus" style="font-style:italic; float:left">
+            <div class="form-group">
+              <div class="col-md-1">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="this.form.submit">Submit</button>
+              </div>
             </div>
-          </div>
-      </fieldset>
+            <div>
+              <a class="toggle-vis">Show/Hide Extra Columns</a><br>
+              <div id="carstatus" style="font-style:italic; float:left">
+              </div>
+            </div>
+        </fieldset>
       </form>
       </div>
-          <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="cartable">
-	        <thead>
-		      <tr>
-			    <th>Year</th>
-			    <th>Make</th>
-			    <th>Model</th>
-			    <th>Trim</th>
-                <th>Engine Position</th>
-                <th>Displacement cc (cu. in)</th>
-                <th># Cylinders</th>
-                <th>Engine Type</th>
-                <th>Fuel</th>
-                <th>Weight lb (kg)</th>
-                <th>Power hp (ps)</th>
-                <th>Power RPM</th>
-                <th>Torque ft-lb (nm)</th>
-                <th>Torque RPM</th>
-                <th class="extra">Valves per Cyl.</th>
-                <th class="extra">Bore (mm)</th>
-                <th class="extra">Stroke (mm)</th>
-                <th class="extra">Compression Ratio</th>
-                <th class="extra">Top Speed (kph)</th>
-                <th class="extra">0 to 100 kph</th>
-                <th class="extra">Drive</th>
-                <th class="extra">Transmission Type</th>
-                <th class="extra">Seats</th>
-                <th class="extra">Doors</th>
-                <th class="extra">Length (mm)</th>
-                <th class="extra">Width (mm)</th>
-                <th class="extra">Height (mm)</th>
-                <th class="extra">Wheelbase</th>
-                <th class="extra">Highway mpg</th>
-                <th class="extra">Mixed MPG</th>
-                <th class="extra">City MPG</th>
-                <th class="extra">Fuel Capacity g (l)</th>
-		      </tr>
-	        </thead>
-            <tbody>
-            </tbody>
-          </table>
+      <div class="col-md-12">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordere" id="cartable">
+	      <thead>
+		    <tr>
+			  <th>Year</th>
+			  <th>Make</th>
+			  <th>Model</th>
+			  <th>Trim</th>
+              <th>Engine Position</th>
+              <th>Displacement cc (cu. in)</th>
+              <th># Cylinders</th>
+              <th>Engine Type</th>
+              <th>Fuel</th>
+              <th>Weight lb (kg)</th>
+              <th>Power hp (ps)</th>
+              <th>Power RPM</th>
+              <th>Torque ft-lb (nm)</th>
+              <th>Torque RPM</th>
+              <th class="extra">Valves per Cyl.</th>
+              <th class="extra">Bore (mm)</th>
+              <th class="extra">Stroke (mm)</th>
+              <th class="extra">Compression Ratio</th>
+              <th class="extra">Top Speed (kph)</th>
+              <th class="extra">0 to 100 kph</th>
+              <th class="extra">Drive</th>
+              <th class="extra">Transmission Type</th>
+              <th class="extra">Seats</th>
+              <th class="extra">Doors</th>
+              <th class="extra">Length (mm)</th>
+              <th class="extra">Width (mm)</th>
+              <th class="extra">Height (mm)</th>
+              <th class="extra">Wheelbase</th>
+              <th class="extra">Highway mpg</th>
+              <th class="extra">Mixed MPG</th>
+              <th class="extra">City MPG</th>
+              <th class="extra">Fuel Capacity g (l)</th>
+		    </tr>
+	      </thead>
+        </table>
         <!-- /.row -->
+      </div>
     </div>
+  </div>
+</div>
 <script>
 $(document).ready(function() {
 
@@ -116,7 +118,7 @@ $(document).ready(function() {
   });
 
 	$('#cartable').dataTable( {
-		"sDom": "l<'span3'i><'span6'p>rt",
+		"sDom": "l<'span6'i><'span6'p>rt",
         "bDeferRender": true,
         "bFilter": false,
 	} );
