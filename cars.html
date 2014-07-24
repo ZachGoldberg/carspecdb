@@ -18,10 +18,10 @@ Trim: <input name="trim" id="cartrim"><br>
 Year: <input name="year" id="caryear"><br>
 <input type="submit">
 </form>
-
+<a class="toggle-vis">Show/Hide Extra Columns</a>
 <div id="carstatus">
 </div>
-
+<div class="container" style="width: 100%">
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="cartable">
 	<thead>
 		<tr>
@@ -33,35 +33,36 @@ Year: <input name="year" id="caryear"><br>
             <th>Engine Displacement</th>
             <th># Cylinders</th>
             <th>Engine Type</th>
+            <th>Fuel</th>
             <th>Valves per Cyl.</th>
             <th>Power (ps)</th>
             <th>Power RPM</th>
             <th>Torque (nm)</th>
             <th>Torque RPM</th>
-            <th>Bore (mm)</th>
-            <th>Stroke (mm)</th>
-            <th>Compression Ratio</th>
-            <th>Fuel</th>
-            <th>Top Speed (kph)</th>
-            <th>0 to 100 kph</th>
-            <th>Drive</th>
-            <th>Transmission Type</th>
-            <th>Seats</th>
-            <th>Doors</th>
-            <th>Weight (kg)</th>
-            <th>Length (mm)</th>
-            <th>Width (mm)</th>
-            <th>Height (mm)</th>
-            <th>Wheelbase</th>
-            <th>Highway mpg</th>
-            <th>Mixed MPG</th>
-            <th>City MPG</th>
-            <th>Fuel Capacity (l)</th>
+            <th class="extra">Bore (mm)</th>
+            <th class="extra">Stroke (mm)</th>
+            <th class="extra">Compression Ratio</th>
+            <th class="extra">Top Speed (kph)</th>
+            <th class="extra">0 to 100 kph</th>
+            <th class="extra">Drive</th>
+            <th class="extra">Transmission Type</th>
+            <th class="extra">Seats</th>
+            <th class="extra">Doors</th>
+            <th class="extra">Weight (kg)</th>
+            <th class="extra">Length (mm)</th>
+            <th class="extra">Width (mm)</th>
+            <th class="extra">Height (mm)</th>
+            <th class="extra">Wheelbase</th>
+            <th class="extra">Highway mpg</th>
+            <th class="extra">Mixed MPG</th>
+            <th class="extra">City MPG</th>
+            <th class="extra">Fuel Capacity (l)</th>
 		</tr>
 	</thead>
     <tbody>
     </tbody>
 </table>
+</div>
 
 <script>
 $(document).ready(function() {
@@ -95,6 +96,18 @@ $(document).ready(function() {
 			"sLengthMenu": "_MENU_ records per page"
 		}
 	} );
+    $("#cartable").DataTable().columns('.extra').visible( false );
+    $("#cartable").width("100%");
+    $("#cartable").DataTable().columns.adjust();
+    var visible = false;
+    $('a.toggle-vis').on( 'click', function (e) {
+        e.preventDefault();
+        var table = $('#cartable').DataTable();
+        table.columns('.extra').visible( ! visible );
+        visible = ! visible;
+        $("#cartable").width("100%");
+        table.columns.adjust();
+    });
 
 });
 
@@ -138,10 +151,11 @@ function processData(results) {
       }
       rows.push([r.model_year, r.model_make_display, r.model_name,
                  r.model_trim, r.model_engine_position, r.model_engine_cc,
-                 r.model_engine_num_cyl, r.model_engine_type, r.mode_engine_valves_per_cyl,
+                 r.model_engine_num_cyl, r.model_engine_type,
+                 r.model_engine_fuel, r.mode_engine_valves_per_cyl,
                  r.model_engine_power_ps, r.model_engine_power_rpm, r.model_engine_torque_nm,
                  r.model_engine_torque_rpm, r.model_engine_bore_mm, r.model_engine_stroke_mm,
-                 r.model_engine_compression, r.model_engine_fuel, r.model_top_speed_kph,
+                 r.model_engine_compression, r.model_top_speed_kph,
                  r.model_0_to_100_kph, r.model_drive, r.model_transmission_type, r.model_seats,
                  r.model_doors, r.model_weight_kg, r.model_length_mm, r.model_width_mm,
                  r.model_height_mm, r.model_wheelbase, r.model_lkm_hwy, r.model_lkm_mixed,
