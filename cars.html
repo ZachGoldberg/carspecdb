@@ -82,9 +82,9 @@
               <th class="extra">Width (mm)</th>
               <th class="extra">Height (mm)</th>
               <th class="extra">Wheelbase</th>
-              <th class="extra">Highway mpg</th>
-              <th class="extra">Mixed MPG</th>
-              <th class="extra">City MPG</th>
+              <th class="extra">Highway MPG (lkm)</th>
+              <th class="extra">Mixed MPG (lkm)</th>
+              <th class="extra">City MPG (lkm)</th>
               <th class="extra">Fuel Capacity g (l)</th>
 		    </tr>
 	      </thead>
@@ -191,8 +191,10 @@ function processData(results) {
                  r.model_0_to_100_kph, r.model_drive, r.model_transmission_type, r.model_seats,
                  r.model_doors,
                  r.model_length_mm, r.model_width_mm,
-                 r.model_height_mm, r.model_wheelbase, r.model_lkm_hwy, r.model_lkm_mixed,
-                 r.model_lkm_city,
+                 r.model_height_mm, r.model_wheelbase,
+                 Math.round(235.0 / r.model_lkm_hwy) + " (" + r.model_lkm_hwy + ")",
+                 Math.round(235.0 / r.model_lkm_mixed) + " (" + r.model_lkm_mixed + ")",
+                 Math.round(235.0 / r.model_lkm_city) + " (" + r.model_lkm_city + ")",
                  Math.round(r.model_fuel_cap_l * 0.264172) + " (" + r.model_fuel_cap_l + ")"]);
    }
    console.log("Time for csv math: " + (new Date().getTime() - start));
