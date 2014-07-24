@@ -30,15 +30,16 @@ Year: <input name="year" id="caryear"><br>
 			<th>Model</th>
 			<th>Trim</th>
             <th>Engine Position</th>
-            <th>Engine Displacement</th>
+            <th>Displacement cc (cu. in)</th>
             <th># Cylinders</th>
             <th>Engine Type</th>
             <th>Fuel</th>
-            <th>Valves per Cyl.</th>
-            <th>Power (ps)</th>
+            <th>Weight lb (kg)</th>
+            <th>Power hp (ps)</th>
             <th>Power RPM</th>
-            <th>Torque (nm)</th>
+            <th>Torque ft-lb (nm)</th>
             <th>Torque RPM</th>
+            <th class="extra">Valves per Cyl.</th>
             <th class="extra">Bore (mm)</th>
             <th class="extra">Stroke (mm)</th>
             <th class="extra">Compression Ratio</th>
@@ -48,7 +49,6 @@ Year: <input name="year" id="caryear"><br>
             <th class="extra">Transmission Type</th>
             <th class="extra">Seats</th>
             <th class="extra">Doors</th>
-            <th class="extra">Weight (kg)</th>
             <th class="extra">Length (mm)</th>
             <th class="extra">Width (mm)</th>
             <th class="extra">Height (mm)</th>
@@ -56,7 +56,7 @@ Year: <input name="year" id="caryear"><br>
             <th class="extra">Highway mpg</th>
             <th class="extra">Mixed MPG</th>
             <th class="extra">City MPG</th>
-            <th class="extra">Fuel Capacity (l)</th>
+            <th class="extra">Fuel Capacity g (l)</th>
 		</tr>
 	</thead>
     <tbody>
@@ -150,16 +150,24 @@ function processData(results) {
             r[headers[j]] = data[j];
       }
       rows.push([r.model_year, r.model_make_display, r.model_name,
-                 r.model_trim, r.model_engine_position, r.model_engine_cc,
+                 r.model_trim, r.model_engine_position,
+                 r.model_engine_cc + " (" + Math.round(r.model_engine_cc * 0.0610237441) + ")",
                  r.model_engine_num_cyl, r.model_engine_type,
-                 r.model_engine_fuel, r.mode_engine_valves_per_cyl,
-                 r.model_engine_power_ps, r.model_engine_power_rpm, r.model_engine_torque_nm,
-                 r.model_engine_torque_rpm, r.model_engine_bore_mm, r.model_engine_stroke_mm,
+                 r.model_engine_fuel,
+                 Math.round(r.model_weight_kg * 2.20462) + " (" + r.model_weight_kg + ")",
+                 Math.round(r.model_engine_power_ps * 0.98631997) + " (" + r.model_engine_power_ps + ")",
+                 r.model_engine_power_rpm,
+                 Math.round(r.model_engine_torque_nm * 0.737562149) + " (" + r.model_engine_torque_nm + ")",
+                 r.model_engine_torque_rpm,
+                 r.mode_engine_valves_per_cyl,
+                 r.model_engine_bore_mm, r.model_engine_stroke_mm,
                  r.model_engine_compression, r.model_top_speed_kph,
                  r.model_0_to_100_kph, r.model_drive, r.model_transmission_type, r.model_seats,
-                 r.model_doors, r.model_weight_kg, r.model_length_mm, r.model_width_mm,
+                 r.model_doors,
+                 r.model_length_mm, r.model_width_mm,
                  r.model_height_mm, r.model_wheelbase, r.model_lkm_hwy, r.model_lkm_mixed,
-                 r.model_lkm_city, r.model_fuel_cap_l]);
+                 r.model_lkm_city,
+                 Math.round(r.model_fuel_cap_l * 0.264172) + " (" + r.model_fuel_cap_l + ")"]);
    }
    console.log("Time for csv math: " + (new Date().getTime() - start));
    table.rows.add(rows);
