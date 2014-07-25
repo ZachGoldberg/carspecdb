@@ -164,6 +164,8 @@ function doSearch() {
 }
 
 function processData(results) {
+   var metricValue = '1';
+   ga('set', 'Searches', metricValue);
    var start = new Date().getTime();
    var table = $('#cartable').DataTable();
    table.clear();
