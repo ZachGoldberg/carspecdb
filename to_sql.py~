@@ -1,0 +1,6 @@
+import csv
+import sqlite3
+
+
+if __name__ == '__main__':
+    reader = csv.DictReader('data.csv')

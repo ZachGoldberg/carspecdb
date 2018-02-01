@@ -1,0 +1,10 @@
+
+
+if __name__ == '__main__':
+    for year in getYears():
+        for make in getMakes(year):
+            for model in getModels(year, make):
+                for trim in getTrim(year, make, model):
+                    print "%s %s %s %s" % (year, make, model, trim['id'])
+
+
